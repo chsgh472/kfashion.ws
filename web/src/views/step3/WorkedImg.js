@@ -36,6 +36,27 @@ class WorkedImg extends React.Component  {
 
     handleClick=(item)=>{
         this.props.professionalLabelStore.LoadLabelList(item.workNo);
+        const labelNo1 =this.props.professionalLabelStore.styleReviewLabel.labelNo1;
+        if(labelNo1 === 1) {
+            this.props.professionalLabelStore.changeNewProfessionalLabelNo1(labelNo1);
+        }
+        const labelNo2 =this.props.professionalLabelStore.styleReviewLabel.labelNo2;
+        if(labelNo2 === 2) {
+            this.props.professionalLabelStore.changeNewProfessionalLabelNo1(labelNo2);
+        }
+        const labelNo3 =this.props.professionalLabelStore.styleReviewLabel.labelNo3;
+        if(labelNo3 === 3) {
+            this.props.professionalLabelStore.changeNewProfessionalLabelNo1(labelNo3);
+        }
+        const labelNo4 =this.props.professionalLabelStore.styleReviewLabel.labelNo4;
+        if(labelNo4 === 4) {
+            this.props.professionalLabelStore.changeNewProfessionalLabelNo1(labelNo4);
+        }
+        const labelNo5 =this.props.professionalLabelStore.styleReviewLabel.labelNo5;
+        if(labelNo5 === 5) {
+            this.props.professionalLabelStore.changeNewProfessionalLabelNo1(labelNo5);
+        }
+
     }
     render() {
         const {recentlyImg} = this.props.professionalLabelStore;

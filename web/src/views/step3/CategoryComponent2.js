@@ -13,7 +13,6 @@ import ColorKara2 from "./ColorKara2";
 import Fit2 from "./Fit2";
 import {inject, observer} from "mobx-react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import Detail1 from "./Detail1";
 
 const styles = theme => ({
     mainContainer: {
@@ -162,7 +161,7 @@ class CategoryComponent2 extends React.Component {
                                                 디테일
                                             </Typography>
                                             <div style={{display:'inline-block', float:'right', marginTop : -3}}>
-                                                <Detail1 onClick={this.handleClickDetail}/>
+                                                <Detail2 onClick={this.handleClickDetail}/>
                                             </div>
                                             <div>
                                                 <hr></hr>

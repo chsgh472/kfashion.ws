@@ -48,7 +48,7 @@ class DropzoneDialogExample extends Component {
         });
 
 
-        const collator = new Intl.Collator('kr', {numeric: true, sensitivity: 'base'});
+        const collator = new Intl.Collator('en', {numeric: true, sensitivity: 'base'});
         file = file.sort((a, b) => collator.compare(a.name, b.name))
 
         const userId = this.props.authStore.isUserId;
@@ -60,7 +60,7 @@ class DropzoneDialogExample extends Component {
     }
 
     handelOnDrop(files) {
-        const collator = new Intl.Collator('kr', {numeric: true, sensitivity: 'base'});
+        const collator = new Intl.Collator('en', {numeric: true, sensitivity: 'base'});
         files = files.sort((a, b) => collator.compare(a.name, b.name))
         console.log(files);
     }

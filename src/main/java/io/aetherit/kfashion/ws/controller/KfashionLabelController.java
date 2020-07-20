@@ -28,10 +28,10 @@ public class KfashionLabelController {
                                        KfashionWorkHistoryService kfashionWorkHistoryService,
                                        KfashionWorkService kfashionWorkService,
                                        KfashionImageLocationPolygonPointService kfashionImageLocationPolygonPointService) {
-            this.kfashionLabelService = kfashionLabelService;
-            this.kfashionWorkHistoryService = kfashionWorkHistoryService;
-            this.kfashionWorkService = kfashionWorkService;
-            this.kfashionImageLocationPolygonPointService = kfashionImageLocationPolygonPointService;
+                this.kfashionLabelService = kfashionLabelService;
+                this.kfashionWorkHistoryService = kfashionWorkHistoryService;
+                this.kfashionWorkService = kfashionWorkService;
+                this.kfashionImageLocationPolygonPointService = kfashionImageLocationPolygonPointService;
         }
 
         /**
@@ -46,101 +46,101 @@ public class KfashionLabelController {
         public ResponseEntity<Object> basicLabel(HttpServletRequest httpServletRequest,
                                                  @RequestBody BasicLabel basicLabel) throws Exception{
 
-                        KfashionWork work = new KfashionWork();
-                        work.setNo(basicLabel.getWorkNo());
-                        work.setWorkState(basicLabel.getWorkStep());
-                        kfashionWorkService.updateWork(work);
+                KfashionWork work = new KfashionWork();
+                work.setNo(basicLabel.getWorkNo());
+                work.setWorkState(basicLabel.getWorkStep());
+                kfashionWorkService.updateWork(work);
 
-                        KfashionWorkHistory workHistory = new KfashionWorkHistory();
-                        workHistory.setWorkNo(basicLabel.getWorkNo());
-                        workHistory.setWorkStep(basicLabel.getWorkStep());
-                        workHistory.setCreatedId(basicLabel.getCreatedId());
-                        kfashionWorkHistoryService.insertWorkHistory(workHistory);
+                KfashionWorkHistory workHistory = new KfashionWorkHistory();
+                workHistory.setWorkNo(basicLabel.getWorkNo());
+                workHistory.setWorkStep(basicLabel.getWorkStep());
+                workHistory.setCreatedId(basicLabel.getCreatedId());
+                kfashionWorkHistoryService.insertWorkHistory(workHistory);
 
-                        if(basicLabel.getLabelNo1() == 1) {
-                                System.out.println("case1실행한다");
-                                KfashionLabel basic = new KfashionLabel();
-                                basic.setWorkNo(basicLabel.getWorkNo());
-                                basic.setWorkStep(basicLabel.getWorkStep());
-                                basic.setLabelNo(1);
-                                basic.setNo(1);
-                                basic.setCategoryNo(basicLabel.getColorCategoryNo1());
-                                basic.setCategoryItemNo(basicLabel.getColor1());
-                                basic.setCreatedId(basicLabel.getCreatedId());
-                                kfashionLabelService.insertBasicLabel(basic);
-                                if (basicLabel.getSubColor1() != 0) {
-                                        basic.setNo(2);
-                                        basic.setCategoryNo(basicLabel.getSubColorCategoryNo1());
-                                        basic.setCategoryItemNo(basicLabel.getSubColor1());
-                                        kfashionLabelService.insertBasicLabel(basic);
-                                }
-                                basic.setNo(3);
-                                basic.setCategoryNo(basicLabel.getSleeveLengthCategoryNo1());
-                                basic.setCategoryItemNo(basicLabel.getSleeveLength1());
+                if(basicLabel.getLabelNo1() == 1) {
+                        System.out.println("case1실행한다");
+                        KfashionLabel basic = new KfashionLabel();
+                        basic.setWorkNo(basicLabel.getWorkNo());
+                        basic.setWorkStep(basicLabel.getWorkStep());
+                        basic.setLabelNo(1);
+                        basic.setNo(1);
+                        basic.setCategoryNo(basicLabel.getColorCategoryNo1());
+                        basic.setCategoryItemNo(basicLabel.getColor1());
+                        basic.setCreatedId(basicLabel.getCreatedId());
+                        kfashionLabelService.insertBasicLabel(basic);
+                        if (basicLabel.getSubColor1() != 0) {
+                                basic.setNo(2);
+                                basic.setCategoryNo(basicLabel.getSubColorCategoryNo1());
+                                basic.setCategoryItemNo(basicLabel.getSubColor1());
                                 kfashionLabelService.insertBasicLabel(basic);
                         }
-                        if(basicLabel.getLabelNo2() == 2) {
-                                System.out.println("case2실행한다");
-                                KfashionLabel basic1 = new KfashionLabel();
-                                basic1.setWorkNo(basicLabel.getWorkNo());
-                                basic1.setWorkStep(basicLabel.getWorkStep());
-                                basic1.setLabelNo(2);
-                                basic1.setNo(1);
-                                basic1.setCategoryNo(basicLabel.getColorCategoryNo2());
-                                basic1.setCategoryItemNo(basicLabel.getColor2());
-                                basic1.setCreatedId(basicLabel.getCreatedId());
-                                kfashionLabelService.insertBasicLabel(basic1);
-                                if (basicLabel.getSubColor1() != 0) {
-                                        basic1.setNo(2);
-                                        basic1.setCategoryNo(basicLabel.getSubColorCategoryNo2());
-                                        basic1.setCategoryItemNo(basicLabel.getSubColor2());
-                                        kfashionLabelService.insertBasicLabel(basic1);
-                                }
-                                basic1.setNo(3);
-                                basic1.setCategoryNo(basicLabel.getSleeveLengthCategoryNo2());
-                                basic1.setCategoryItemNo(basicLabel.getSleeveLength2());
+                        basic.setNo(3);
+                        basic.setCategoryNo(basicLabel.getSleeveLengthCategoryNo1());
+                        basic.setCategoryItemNo(basicLabel.getSleeveLength1());
+                        kfashionLabelService.insertBasicLabel(basic);
+                }
+                if(basicLabel.getLabelNo2() == 2) {
+                        System.out.println("case2실행한다");
+                        KfashionLabel basic1 = new KfashionLabel();
+                        basic1.setWorkNo(basicLabel.getWorkNo());
+                        basic1.setWorkStep(basicLabel.getWorkStep());
+                        basic1.setLabelNo(2);
+                        basic1.setNo(1);
+                        basic1.setCategoryNo(basicLabel.getColorCategoryNo2());
+                        basic1.setCategoryItemNo(basicLabel.getColor2());
+                        basic1.setCreatedId(basicLabel.getCreatedId());
+                        kfashionLabelService.insertBasicLabel(basic1);
+                        if (basicLabel.getSubColor1() != 0) {
+                                basic1.setNo(2);
+                                basic1.setCategoryNo(basicLabel.getSubColorCategoryNo2());
+                                basic1.setCategoryItemNo(basicLabel.getSubColor2());
                                 kfashionLabelService.insertBasicLabel(basic1);
                         }
-                        if(basicLabel.getLabelNo3() == 3) {
-                                System.out.println("case3실행한다");
-                                KfashionLabel basic2 = new KfashionLabel();
-                                basic2.setWorkNo(basicLabel.getWorkNo());
-                                basic2.setWorkStep(basicLabel.getWorkStep());
-                                basic2.setLabelNo(3);
-                                basic2.setNo(1);
-                                basic2.setCategoryNo(basicLabel.getColorCategoryNo3());
-                                basic2.setCategoryItemNo(basicLabel.getColor3());
-                                basic2.setCreatedId(basicLabel.getCreatedId());
+                        basic1.setNo(3);
+                        basic1.setCategoryNo(basicLabel.getSleeveLengthCategoryNo2());
+                        basic1.setCategoryItemNo(basicLabel.getSleeveLength2());
+                        kfashionLabelService.insertBasicLabel(basic1);
+                }
+                if(basicLabel.getLabelNo3() == 3) {
+                        System.out.println("case3실행한다");
+                        KfashionLabel basic2 = new KfashionLabel();
+                        basic2.setWorkNo(basicLabel.getWorkNo());
+                        basic2.setWorkStep(basicLabel.getWorkStep());
+                        basic2.setLabelNo(3);
+                        basic2.setNo(1);
+                        basic2.setCategoryNo(basicLabel.getColorCategoryNo3());
+                        basic2.setCategoryItemNo(basicLabel.getColor3());
+                        basic2.setCreatedId(basicLabel.getCreatedId());
+                        kfashionLabelService.insertBasicLabel(basic2);
+                        if (basicLabel.getSubColor2() != 0) {
+                                basic2.setNo(2);
+                                basic2.setCategoryNo(basicLabel.getSubColorCategoryNo3());
+                                basic2.setCategoryItemNo(basicLabel.getSubColor3());
                                 kfashionLabelService.insertBasicLabel(basic2);
-                                if (basicLabel.getSubColor2() != 0) {
-                                        basic2.setNo(2);
-                                        basic2.setCategoryNo(basicLabel.getSubColorCategoryNo3());
-                                        basic2.setCategoryItemNo(basicLabel.getSubColor3());
-                                        kfashionLabelService.insertBasicLabel(basic2);
-                                }
                         }
-                        if(basicLabel.getLabelNo4() == 4) {
-                                System.out.println("case4실행한다");
-                                KfashionLabel basic3 = new KfashionLabel();
-                                basic3.setWorkNo(basicLabel.getWorkNo());
-                                basic3.setWorkStep(basicLabel.getWorkStep());
-                                basic3.setLabelNo(4);
-                                basic3.setNo(1);
-                                basic3.setCategoryNo(basicLabel.getColorCategoryNo4());
-                                basic3.setCategoryItemNo(basicLabel.getColor4());
-                                basic3.setCreatedId(basicLabel.getCreatedId());
-                                kfashionLabelService.insertBasicLabel(basic3);
-                                if (basicLabel.getSubColor3() != 0) {
-                                        basic3.setNo(2);
-                                        basic3.setCategoryNo(basicLabel.getSubColorCategoryNo4());
-                                        basic3.setCategoryItemNo(basicLabel.getSubColor4());
-                                        kfashionLabelService.insertBasicLabel(basic3);
-                                }
-                                basic3.setNo(3);
-                                basic3.setCategoryNo(basicLabel.getSleeveLengthCategoryNo4());
-                                basic3.setCategoryItemNo(basicLabel.getSleeveLength4());
+                }
+                if(basicLabel.getLabelNo4() == 4) {
+                        System.out.println("case4실행한다");
+                        KfashionLabel basic3 = new KfashionLabel();
+                        basic3.setWorkNo(basicLabel.getWorkNo());
+                        basic3.setWorkStep(basicLabel.getWorkStep());
+                        basic3.setLabelNo(4);
+                        basic3.setNo(1);
+                        basic3.setCategoryNo(basicLabel.getColorCategoryNo4());
+                        basic3.setCategoryItemNo(basicLabel.getColor4());
+                        basic3.setCreatedId(basicLabel.getCreatedId());
+                        kfashionLabelService.insertBasicLabel(basic3);
+                        if (basicLabel.getSubColor3() != 0) {
+                                basic3.setNo(2);
+                                basic3.setCategoryNo(basicLabel.getSubColorCategoryNo4());
+                                basic3.setCategoryItemNo(basicLabel.getSubColor4());
                                 kfashionLabelService.insertBasicLabel(basic3);
                         }
+                        basic3.setNo(3);
+                        basic3.setCategoryNo(basicLabel.getSleeveLengthCategoryNo4());
+                        basic3.setCategoryItemNo(basicLabel.getSleeveLength4());
+                        kfashionLabelService.insertBasicLabel(basic3);
+                }
                 return new ResponseEntity<Object>("success",HttpStatus.OK);
         }
 
@@ -369,7 +369,7 @@ public class KfashionLabelController {
 
         @GetMapping(value="/basicLabelList")
         public ResponseEntity<Object> basicLabelList(HttpServletRequest httpRequest,
-                                                  @RequestParam(value="createdId")String createdId) {
+                                                     @RequestParam(value="createdId")String createdId) {
                 HashMap<String, Object> resultMap = new HashMap<String, Object>();
                 List<KfashionLabel> basicLabelList = kfashionLabelService.selectBasicLabelList(createdId);
                 resultMap.put("basicLabelList", basicLabelList);
@@ -379,15 +379,18 @@ public class KfashionLabelController {
 
         @GetMapping(value="/reviewLabelList")
         public ResponseEntity<Object> reviewLabelList(HttpServletRequest httpRequest,
-                                                     @RequestParam(value="workNo")Long workNo) {
+                                                      @RequestParam(value="workNo")Long workNo) {
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 HashMap<String, Object> resultMap = new HashMap<String, Object>();
+
+                System.out.println("workNo : "+ workNo);
                 int[] labelNo = kfashionLabelService.selectLabelList(workNo);
                 int labelNo1=0;
                 int labelNo2=0;
                 int labelNo3=0;
                 int labelNo4=0;
                 int labelNo5=0;
-
+                System.out.println("labelNo : "+ labelNo);
                 for(int i=0; i < labelNo.length; i++) {
                         if(labelNo[i] == 1) {
                                 labelNo1 = 1;
@@ -407,8 +410,9 @@ public class KfashionLabelController {
 
                 }
 
+
                 if(labelNo1 == 1) {
-                List<KfashionLabel> outerReviewLabelList = kfashionLabelService.selectOuterReviewLabelList(workNo);
+                        List<KfashionLabel> outerReviewLabelList = kfashionLabelService.selectOuterReviewLabelList(workNo);
                         ReviewLabel outerReviewLabel =  ReviewLabel.builder()
                                 .categoryCategoryNo1(outerReviewLabelList.get(0).getCategoryNo())
                                 .category1(outerReviewLabelList.get(0).getCategoryItemNo())
@@ -440,37 +444,37 @@ public class KfashionLabelController {
                 }
                 if(labelNo2 == 2) {
                         List<KfashionLabel> topReviewLabelList = kfashionLabelService.selectTopReviewLabelList(workNo);
-                                ReviewLabel topReviewLabel =  ReviewLabel.builder()
-                                        .categoryCategoryNo2(topReviewLabelList.get(0).getCategoryNo())
-                                        .category2(topReviewLabelList.get(0).getCategoryItemNo())
-                                        .categoryItemName2(topReviewLabelList.get(0).getCategoryItemName())
-                                        .detailCategoryNo2(topReviewLabelList.get(1).getCategoryNo())
-                                        .detail2(topReviewLabelList.get(1).getCategoryItemNo())
-                                        .detailItemName2(topReviewLabelList.get(1).getCategoryItemName())
-                                        .printCategoryNo2(topReviewLabelList.get(2).getCategoryNo())
-                                        .print2(topReviewLabelList.get(2).getCategoryItemNo())
-                                        .printItemName2(topReviewLabelList.get(2).getCategoryItemName())
-                                        .textureCategoryNo2(topReviewLabelList.get(3).getCategoryNo())
-                                        .texture2(topReviewLabelList.get(3).getCategoryItemNo())
-                                        .textureItemName2(topReviewLabelList.get(3).getCategoryItemName())
-                                        .clothLengthCategoryNo2(topReviewLabelList.get(4).getCategoryNo())
-                                        .clothLength2(topReviewLabelList.get(4).getCategoryItemNo())
-                                        .clothLengthItemName2(topReviewLabelList.get(4).getCategoryItemName())
-                                        .neckLineCategoryNo2(topReviewLabelList.get(5).getCategoryNo())
-                                        .neckLine2(topReviewLabelList.get(5).getCategoryItemNo())
-                                        .neckLineItemName2(topReviewLabelList.get(5).getCategoryItemName())
-                                        .karaCategoryNo2(topReviewLabelList.get(6).getCategoryNo())
-                                        .kara2(topReviewLabelList.get(6).getCategoryItemNo())
-                                        .karaItemName2(topReviewLabelList.get(6).getCategoryItemName())
-                                        .fitCategoryNo2(topReviewLabelList.get(7).getCategoryNo())
-                                        .fit2(topReviewLabelList.get(7).getCategoryItemNo())
-                                        .fitItemName2(topReviewLabelList.get(7).getCategoryItemName())
-                                        .build();
-                                resultMap.put("topReviewLabel", topReviewLabel);
-                                System.out.println(topReviewLabel);
+                        ReviewLabel topReviewLabel =  ReviewLabel.builder()
+                                .categoryCategoryNo2(topReviewLabelList.get(0).getCategoryNo())
+                                .category2(topReviewLabelList.get(0).getCategoryItemNo())
+                                .categoryItemName2(topReviewLabelList.get(0).getCategoryItemName())
+                                .detailCategoryNo2(topReviewLabelList.get(1).getCategoryNo())
+                                .detail2(topReviewLabelList.get(1).getCategoryItemNo())
+                                .detailItemName2(topReviewLabelList.get(1).getCategoryItemName())
+                                .printCategoryNo2(topReviewLabelList.get(2).getCategoryNo())
+                                .print2(topReviewLabelList.get(2).getCategoryItemNo())
+                                .printItemName2(topReviewLabelList.get(2).getCategoryItemName())
+                                .textureCategoryNo2(topReviewLabelList.get(3).getCategoryNo())
+                                .texture2(topReviewLabelList.get(3).getCategoryItemNo())
+                                .textureItemName2(topReviewLabelList.get(3).getCategoryItemName())
+                                .clothLengthCategoryNo2(topReviewLabelList.get(4).getCategoryNo())
+                                .clothLength2(topReviewLabelList.get(4).getCategoryItemNo())
+                                .clothLengthItemName2(topReviewLabelList.get(4).getCategoryItemName())
+                                .neckLineCategoryNo2(topReviewLabelList.get(5).getCategoryNo())
+                                .neckLine2(topReviewLabelList.get(5).getCategoryItemNo())
+                                .neckLineItemName2(topReviewLabelList.get(5).getCategoryItemName())
+                                .karaCategoryNo2(topReviewLabelList.get(6).getCategoryNo())
+                                .kara2(topReviewLabelList.get(6).getCategoryItemNo())
+                                .karaItemName2(topReviewLabelList.get(6).getCategoryItemName())
+                                .fitCategoryNo2(topReviewLabelList.get(7).getCategoryNo())
+                                .fit2(topReviewLabelList.get(7).getCategoryItemNo())
+                                .fitItemName2(topReviewLabelList.get(7).getCategoryItemName())
+                                .build();
+                        resultMap.put("topReviewLabel", topReviewLabel);
+                        System.out.println(topReviewLabel);
                 }
                 if(labelNo3 == 3) {
-                List<KfashionLabel> pantsReviewLabelList = kfashionLabelService.selectPantsReviewLabelList(workNo);
+                        List<KfashionLabel> pantsReviewLabelList = kfashionLabelService.selectPantsReviewLabelList(workNo);
                         ReviewLabel pantsReviewLabel =  ReviewLabel.builder()
                                 .categoryCategoryNo3(pantsReviewLabelList.get(0).getCategoryNo())
                                 .category3(pantsReviewLabelList.get(0).getCategoryItemNo())
@@ -495,7 +499,7 @@ public class KfashionLabelController {
                         System.out.println(pantsReviewLabel);
                 }
                 if(labelNo4 == 4) {
-                List<KfashionLabel> onePieceReviewLabelList = kfashionLabelService.selectOnePieceReviewLabelList(workNo);
+                        List<KfashionLabel> onePieceReviewLabelList = kfashionLabelService.selectOnePieceReviewLabelList(workNo);
                         ReviewLabel onePieceReviewLabel =  ReviewLabel.builder()
                                 .categoryCategoryNo4(onePieceReviewLabelList.get(0).getCategoryNo())
                                 .category4(onePieceReviewLabelList.get(0).getCategoryItemNo())
@@ -535,6 +539,11 @@ public class KfashionLabelController {
                                         .styleCategorySubNo(styleReviewLabelList.get(1).getCategoryNo())
                                         .styleSub(styleReviewLabelList.get(1).getCategoryItemNo())
                                         .styleSubItemName(styleReviewLabelList.get(1).getCategoryItemName())
+                                        .labelNo1(labelNo1)
+                                        .labelNo2(labelNo2)
+                                        .labelNo3(labelNo3)
+                                        .labelNo4(labelNo4)
+                                        .labelNo5(labelNo5)
                                         .build();
                                 resultMap.put("styleReviewLabel", styleReviewLabel);
                         }else {
@@ -553,7 +562,7 @@ public class KfashionLabelController {
 
         @GetMapping(value="/reviewHighLabelList")
         public ResponseEntity<Object> reviewHighLabelList(HttpServletRequest httpRequest,
-                                                      @RequestParam(value="workNo")Long workNo) {
+                                                          @RequestParam(value="workNo")Long workNo) {
                 HashMap<String, Object> resultMap = new HashMap<String, Object>();
                 int[] labelNo = kfashionLabelService.selectHighLabelList(workNo);
                 int labelNo1 = 0;
@@ -577,7 +586,7 @@ public class KfashionLabelController {
                 }
                 if(labelNo1 == 1) {
                         List<KfashionLabel> outerReviewHighLabelList = kfashionLabelService.selectOuterReviewHighLabelList(workNo);
-                         System.out.println(outerReviewHighLabelList.size());
+                        System.out.println(outerReviewHighLabelList.size());
                         if(outerReviewHighLabelList.size() == 2) {
                                 HighReviewLabel outerReviewHighLabel =  HighReviewLabel.builder()
                                         .colorCategoryNo(outerReviewHighLabelList.get(0).getCategoryNo())
@@ -688,7 +697,7 @@ public class KfashionLabelController {
         }
         @GetMapping(value="/deleteProfessionalLabel")
         public ResponseEntity<Object> deleteProfessionalLabel(HttpServletRequest httpRequest,
-                                                     @RequestParam(value="workNo")int workNo) {
+                                                              @RequestParam(value="workNo")int workNo) {
 
                 HashMap<String, Object> resultMap = new HashMap<String, Object>();
                 kfashionLabelService.deleteProfessionalLabel(workNo);

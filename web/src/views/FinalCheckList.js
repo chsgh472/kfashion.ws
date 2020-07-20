@@ -42,11 +42,10 @@ const styles = theme => ({   root: {
     table: {
         minWidth: 500,
     },
-
     mainContainer: {
         flexGrow: 1,
         marginTop:20,
-        maxWidth:'80%',
+        maxWidth:'100%',
     },
     appBarSpacer: theme.mixins.toolbar,
     mainContent: {
@@ -180,15 +179,17 @@ class FinalCheckList extends React.Component {
 
     }
     handleClick=(workNo, imgData)=>{
-        this.props.professionalLabelStore.changeNewProfessionalLabelWorkNo(this.props.imageStore.isWorkNo);
-        this.props.workStore.LoadReviewLabelList(workNo);
         this.deleteAll();
+        console.log(workNo);
+        this.props.professionalLabelStore.changeNewProfessionalLabelWorkNo(workNo);
+        this.props.workStore.LoadReviewLabelList(workNo);
+
         this.props.imageStore.changeWorkNo(workNo);
         this.props.polygonStore.changeNewPolygonLocationWorkNo(workNo);
         this.props.polygonStore.LoadPolygonLocation(workNo);
         this.canvas.setBackgroundImage(`/api/v1/kfashion/img/getByteImage?workNo=${workNo}`, this.canvas.renderAll.bind(this.canvas), {
-            width: 750,
-            height: 850,
+            width: 650,
+            height: 700,
             originX: 'left',
             originY: 'top'
         });
@@ -318,7 +319,7 @@ class FinalCheckList extends React.Component {
                     <Grid container>
                         <Grid item xs={4}>
                             <div>
-                                <canvas id="c" width="750" height="850">  </canvas>
+                                <canvas id="c" width="600" height="650">  </canvas>
                             </div>
                         </Grid>
                         <Grid item xs={3} style={{marginRight:20}}>
@@ -551,12 +552,12 @@ class FinalCheckList extends React.Component {
                                             tooltip: 'Select Image',
                                             onClick: (event, rowData) => this.handleClick(rowData.workNo, "/api/v1/kfashion/img/getByteImage?workNo=" + rowData.workNo)
                                         },
-                                        rowData => ({
-                                            icon: Edit,
-                                            tooltip: 'return',
-                                            hidden: rowData.createdId !== this.props.authStore.loginUser.id,
-                                            onClick: (event, rowData) => this.handleClickReturn(rowData.workNo)
-                                        })
+                                        // rowData => ({
+                                        //     icon: Edit,
+                                        //     tooltip: 'return',
+                                        //     hidden: rowData.createdId !== this.props.authStore.loginUser.id,
+                                        //     onClick: (event, rowData) => this.handleClickReturn(rowData.workNo)
+                                        // })
                                     ]
                                 }
                             />

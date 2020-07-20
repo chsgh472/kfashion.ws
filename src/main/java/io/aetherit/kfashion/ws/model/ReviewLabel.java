@@ -30,6 +30,11 @@ public class ReviewLabel {
 //    private String neckLineName;
 //    private String karaName;
 //    private String fitName;
+    private int labelNo1;
+    private int labelNo2;
+    private int labelNo3;
+    private int labelNo4;
+    private int labelNo5;
 
     private int style;
     private int styleCategoryNo;

@@ -132,7 +132,8 @@ export default class WorkStore {
 
     LoadReviewLabelList = flow(function* loadReviewLabelList(workNo) {
         try {
-            const response = yield axios.get('/api/v1/kfashion/label/reviewLabelList?workNo='+workNo)
+            console.log("LoadReviewLabelList")
+            const response = yield axios.get(`/api/v1/kfashion/label/reviewLabelList?workNo=${workNo}`)
             console.log(response.data)
             if(response.data.outerReviewLabel != null) {
                 this.outerReviewLabel = response.data.outerReviewLabel;

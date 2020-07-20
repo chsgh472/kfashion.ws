@@ -107,9 +107,6 @@ class Step3 extends React.Component {
         this.props.enqueueSnackbar("Step3", {
             variant: 'info'
         });
-        this.setState({
-            imgData: `/api/v1/kfashion/img/getByteImage?workNo=${this.props.imageStore.isWorkNo}`,
-        })
     }
     handleSubmit = () => {
         const createdId = this.props.authStore.isUserId;
@@ -126,6 +123,7 @@ class Step3 extends React.Component {
         this.props.workStore.reSetCategoryItem();
         this.setState({
             tabIndex:0,
+            tabIndex1:0,
         })
 
         this.props.imageStore.changeWorkNo(workNo);

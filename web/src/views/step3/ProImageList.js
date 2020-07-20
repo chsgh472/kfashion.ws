@@ -64,12 +64,15 @@ export default class ProImageList extends React.Component {
 
     componentWillUnmount() {
         this.props.professionalLabelStore.initStore();
+
     }
 
     handleClick = (workNo, imageData) => {
+        this.props.professionalLabelStore.changeNewProfessionalLabelWorkNo(workNo);
         if(this.props.onClick) {
             this.props.onClick(workNo, imageData);
         }
+
     }
 
     handleClickReturn = () =>{
